@@ -4,96 +4,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Administrator CV</title>
+    <title>IT Administrator CV - Professional Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
             color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-        h1, h2 {
-            color: #2c3e50;
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
             text-align: center;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
         }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 35px;
         }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            font-size: 1.1em;
+        }
+
+        .section p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .job-entry {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .job-entry:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
         .job-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .job-meta {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2em;
             font-weight: bold;
         }
-        ul {
-            margin: 5px 0 15px 20px;
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .skills-container {
+                gap: 8px;
+            }
+
+            .skill-badge {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Your Name</h1>
-    <p>Email: your.email@example.com | Phone: +44 0000 000000 | Location: London, UK</p>
-</div>
+<div class="container">
+    <div class="header">
+        <h1>Your Name</h1>
+        <p class="title">IT Administrator | DevOps Enthusiast</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+44 0000 000000</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>London, UK</span>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com" title="GitHub" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" title="LinkedIn" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:your.email@example.com" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
 
 <div class="section">
-    <h2>Professional Summary</h2>
-    <p>
-        IT Administrator with interest in DevOps, cloud computing, and infrastructure automation.
-        Currently developing skills in Linux, Git, Azure, and CI/CD pipelines.
-    </p>
-</div>
+            <h2><i class="fas fa-briefcase"></i> Professional Summary</h2>
+            <p>
+                Dedicated IT Administrator with a strong passion for DevOps, cloud computing, and infrastructure automation. 
+                Experienced in Linux system administration, version control, and Azure cloud services. Currently preparing for 
+                AZ-104 certification and actively developing skills in CI/CD pipelines and containerization technologies.
+            </p>
+        </div>
 
-<div class="section">
-    <h2>Technical Skills</h2>
-    <ul>
-        <li>Linux Administration (Ubuntu, CentOS)</li>
-        <li>Git & GitHub Version Control</li>
-        <li>Azure Fundamentals (AZ-104 preparation)</li>
-        <li>Networking Basics (TCP/IP, DNS, DHCP)</li>
-        <li>Docker & Containers (basic knowledge)</li>
-        <li>Shell Scripting (Bash)</li>
-    </ul>
-</div>
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-badge">Linux Administration</span>
+                <span class="skill-badge">Git & GitHub</span>
+                <span class="skill-badge">Azure Cloud</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Bash Scripting</span>
+                <span class="skill-badge">Networking</span>
+                <span class="skill-badge">CI/CD Pipelines</span>
+                <span class="skill-badge">Infrastructure as Code</span>
+                <span class="skill-badge">System Administration</span>
+                <span class="skill-badge">Cloud Security</span>
+            </div>
+        </div>
 
-<div class="section">
-    <h2>Projects</h2>
-    <ul>
-        <li>Set up Linux server environment for DevOps practice</li>
-        <li>Built Git repository and practiced Git internals</li>
-        <li>Deployed simple web page using Apache/Nginx (lab project)</li>
-    </ul>
-</div>
+        <div class="section">
+            <h2><i class="fas fa-project-diagram"></i> Notable Projects</h2>
+            <div class="job-entry">
+                <div class="job-title">Linux Server Environment Setup</div>
+                <div class="job-meta">DevOps Practice Project</div>
+                <ul>
+                    <li>Configured Ubuntu/CentOS servers for production environments</li>
+                    <li>Implemented automated backup and recovery strategies</li>
+                    <li>Set up monitoring and logging systems</li>
+                </ul>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Git Repository & Workflow Implementation</div>
+                <div class="job-meta">Version Control Mastery</div>
+                <ul>
+                    <li>Mastered Git internals and branching strategies</li>
+                    <li>Implemented pre-commit hooks and automated testing</li>
+                    <li>Documented best practices for team collaboration</li>
+                </ul>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Web Application Deployment</div>
+                <div class="job-meta">Apache/Nginx Lab Project</div>
+                <ul>
+                    <li>Deployed web applications using Apache and Nginx</li>
+                    <li>Configured SSL/TLS certificates and security protocols</li>
+                    <li>Optimized web server performance and scalability</li>
+                </ul>
+            </div>
+        </div>
 
-<div class="section">
-    <h2>Experience</h2>
-    <p class="job-title">IT Support / Administrator (or your current role)</p>
-    <ul>
-        <li>Managed user accounts and system access</li>
-        <li>Provided technical support for hardware and software issues</li>
-        <li>Assisted with network troubleshooting and maintenance</li>
-    </ul>
-</div>
+        <div class="section">
+            <h2><i class="fas fa-history"></i> Professional Experience</h2>
+            <div class="job-entry">
+                <div class="job-title">IT Administrator / Support Specialist</div>
+                <div class="job-meta">Current Role</div>
+                <ul>
+                    <li>Managed user accounts, access permissions, and system security</li>
+                    <li>Provided technical support for hardware, software, and network issues</li>
+                    <li>Maintained and troubleshot network infrastructure</li>
+                    <li>Implemented and monitored IT policies and compliance requirements</li>
+                </ul>
+            </div>
+        </div>
 
-<div class="section">
-    <h2>Education & Certifications</h2>
-    <ul>
-        <li>AZ-104 (In Progress)</li>
-        <li>CompTIA Network+ (Optional / Planned)</li>
-        <li>Accounting / Forensic Accounting Background (if applicable)</li>
-    </ul>
-</div>
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <ul>
+                <li><strong>Azure Administrator (AZ-104)</strong> - In Progress</li>
+                <li><strong>CompTIA Network+</strong> - Planned</li>
+                <li><strong>Accounting / Forensic Accounting Background</strong> - Foundation knowledge</li>
+                <li><strong>Continuous Learning</strong> - DevOps, Cloud Architecture, and Security</li>
+            </ul>
+        </div>
 
-<div class="section">
-    <h2>Interests</h2>
-    <p>
-        Cloud computing, DevOps automation, cybersecurity, and continuous learning in IT infrastructure.
-    </p>
+        <div class="section">
+            <h2><i class="fas fa-heart"></i> Professional Interests</h2>
+            <p>
+                Passionate about cloud computing, DevOps automation, infrastructure as code, 
+                cybersecurity, and continuous improvement. Dedicated to staying current with 
+                industry best practices and emerging technologies in IT infrastructure.
+            </p>
+        </div>
+
+        <button class="download-btn" onclick="window.print()">
+            <i class="fas fa-download"></i> Download / Print CV
+        </button>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Your Name | IT Administrator & DevOps Enthusiast | <a href="mailto:your.email@example.com" style="color: #667eea; text-decoration: none;">Get in Touch</a></p>
+    </div>
 </div>
 
 </body>
-</html>
-
