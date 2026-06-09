@@ -40,7 +40,7 @@ You can also trigger a manual deployment:
 
 Once deployed, your website will be available at:
 
-```
+```text
 https://[your-github-username].github.io/website/
 ```
 
@@ -66,7 +66,7 @@ The workflow uses **GitHub Actions** to build and deploy, so no manual configura
 
 ## Project Structure
 
-```
+```tree
 .
 ├── index.html                    # Main CV webpage
 ├── .github/
